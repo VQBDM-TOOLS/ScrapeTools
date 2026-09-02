@@ -1,176 +1,153 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VQ Tools — Download Center</title>
-<meta name="description" content="Download Center untuk Scraper Tools V1 dan SMS Tools V1.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BantuSaku Tools — Scraper Tools V1 & SMS Tools V1</title>
+<meta name="description" content="Pusat instalasi dan panduan BantuSaku Scraper Tools V1 dan SMS Tools V1.">
 <style>
 :root{
-  --bg:#070b14; --panel:#0d1320; --panel2:#111a2b; --line:#22304a;
-  --text:#eef4ff; --muted:#94a3b8; --accent:#6ea8fe; --accent2:#8b5cf6;
-  --good:#34d399; --shadow:0 20px 60px rgba(0,0,0,.35);
+  --bg:#f6f8fc;--surface:#fff;--text:#101828;--muted:#667085;--line:#e4e7ec;
+  --primary:#2563eb;--primary2:#1d4ed8;--dark:#0f172a;--success:#067647;
+  --shadow:0 18px 55px rgba(15,23,42,.09);--radius:22px
 }
-*{box-sizing:border-box}
-body{
-  margin:0; font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  color:var(--text); background:
-  radial-gradient(circle at 15% 0%,rgba(110,168,254,.16),transparent 28%),
-  radial-gradient(circle at 85% 10%,rgba(139,92,246,.14),transparent 30%),var(--bg);
-  line-height:1.6;
-}
-a{text-decoration:none;color:inherit}
-.container{width:min(1120px,92%);margin:auto}
-nav{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.06)}
-.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.2px}
-.logo{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;
- background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:0 8px 25px rgba(110,168,254,.25)}
-.logo span{font-weight:900}
-.nav-right{font-size:13px;color:var(--muted)}
-.hero{padding:82px 0 55px;text-align:center}
-.badge{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border:1px solid var(--line);
- border-radius:999px;background:rgba(255,255,255,.03);font-size:12px;color:#cbd5e1}
-.dot{width:7px;height:7px;border-radius:50%;background:var(--good);box-shadow:0 0 12px var(--good)}
-h1{font-size:clamp(38px,6vw,68px);line-height:1.02;margin:20px auto 16px;letter-spacing:-2.5px}
-.hero p{max-width:720px;margin:auto;color:var(--muted);font-size:17px}
-.credit{margin-top:16px;font-size:12px;color:#64748b;letter-spacing:1px;text-transform:uppercase}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin:20px 0 70px}
-.card{background:linear-gradient(180deg,rgba(17,26,43,.94),rgba(13,19,32,.94));border:1px solid var(--line);
- border-radius:22px;padding:28px;box-shadow:var(--shadow);position:relative;overflow:hidden}
-.card:before{content:"";position:absolute;inset:0 0 auto;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
-.card-top{display:flex;justify-content:space-between;gap:15px;align-items:flex-start}
-.icon{width:52px;height:52px;border-radius:15px;display:grid;place-items:center;font-size:23px;
- background:rgba(110,168,254,.1);border:1px solid rgba(110,168,254,.18)}
-.version{font-size:11px;color:#a5b4fc;border:1px solid #303b68;padding:5px 9px;border-radius:999px}
-h2{font-size:24px;margin:18px 0 7px}
-.desc{color:var(--muted);font-size:14px;min-height:66px}
-.tags{display:flex;flex-wrap:wrap;gap:7px;margin:18px 0}
-.tag{font-size:11px;padding:5px 9px;border-radius:7px;background:#0a1020;border:1px solid #1e2b43;color:#aebbd0}
-.download{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;padding:13px 16px;
- border-radius:12px;background:linear-gradient(135deg,var(--accent),#4f7de8);color:white;font-weight:800;font-size:14px;
- transition:.2s;box-shadow:0 10px 24px rgba(78,125,232,.2)}
-.download:hover{transform:translateY(-2px);filter:brightness(1.08)}
-section{margin-bottom:70px}
-.section-title{text-align:center;margin-bottom:25px}
-.section-title h2{font-size:30px;margin:0 0 5px}
-.section-title p{margin:0;color:var(--muted);font-size:14px}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.step{background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:22px}
-.num{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:#182641;color:#b9d3ff;
-font-weight:800;font-size:13px;margin-bottom:14px}
-.step h3{margin:0 0 7px;font-size:16px}.step p{margin:0;color:var(--muted);font-size:13px}
-.note{background:rgba(52,211,153,.06);border:1px solid rgba(52,211,153,.18);padding:18px 20px;border-radius:15px;color:#b9c8d8;font-size:13px}
-.note strong{color:#d8fff0}
-footer{border-top:1px solid rgba(255,255,255,.06);padding:28px 0 40px;color:#64748b;font-size:12px;text-align:center}
-@media(max-width:760px){.grid,.steps{grid-template-columns:1fr}.hero{padding-top:60px}h1{letter-spacing:-1.5px}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(circle at 80% 0,#dbeafe 0,transparent 30%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;line-height:1.6}
+a{text-decoration:none;color:inherit}.container{width:min(1120px,calc(100% - 32px));margin:auto}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:11px;font-weight:850}.brand-mark{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,#2563eb,#7c3aed);display:grid;place-items:center;color:#fff;font-weight:900;box-shadow:0 9px 24px #2563eb40}
+.navlinks{display:flex;gap:24px;color:#475467;font-size:14px;font-weight:650}.navlinks a:hover{color:var(--primary)}
+.hero{padding:70px 0 54px}.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:42px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:7px 11px;border:1px solid #bfdbfe;background:#eff6ff;color:#1d4ed8;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:.05em}
+h1{font-size:clamp(38px,6vw,66px);line-height:1.02;letter-spacing:-.055em;margin:18px 0}.hero p{font-size:18px;color:var(--muted);max-width:650px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 18px;border-radius:13px;font-weight:800;border:1px solid var(--line);background:#fff;box-shadow:0 5px 16px #1018280a}.btn.primary{background:var(--dark);border-color:var(--dark);color:#fff}.btn.primary:hover{transform:translateY(-1px)}
+.hero-note{font-size:12px;color:#98a2b3;margin-top:14px}
+.visual{background:linear-gradient(145deg,#111827,#1e3a8a);border-radius:28px;padding:18px;box-shadow:var(--shadow);transform:rotate(1deg)}
+.browser{background:#fff;border-radius:18px;overflow:hidden}.browser-top{height:42px;background:#eef2f6;display:flex;align-items:center;gap:7px;padding:0 13px}.dot{width:9px;height:9px;border-radius:50%;background:#cbd5e1}.address{height:25px;background:#fff;border:1px solid #e5e7eb;border-radius:7px;flex:1;margin-left:6px;color:#98a2b3;font-size:9px;padding:5px 9px}
+.mock{padding:18px;background:#f8fafc}.mock-head{background:linear-gradient(135deg,#111827,#1e3a8a);color:#fff;border-radius:13px;padding:14px}.mock-title{font-size:15px;font-weight:850}.mock-sub{font-size:9px;color:#cbd5e1}.mock-card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;margin-top:11px;padding:12px}.mini-row{display:flex;justify-content:space-between;font-size:10px;padding:6px 0;border-bottom:1px solid #f0f2f5}.mini-row:last-child{border:0}.pill{display:inline-block;padding:3px 7px;border-radius:999px;font-size:8px;font-weight:800;background:#dcfce7;color:#166534}
+.section{padding:54px 0}.section-head{max-width:700px;margin-bottom:25px}.kicker{font-size:11px;font-weight:900;color:var(--primary);letter-spacing:.1em}.section h2{font-size:34px;line-height:1.1;letter-spacing:-.035em;margin:7px 0}.section-head p{color:var(--muted)}
+.tools{display:grid;grid-template-columns:1fr 1fr;gap:20px}.tool{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}.tool-top{display:flex;justify-content:space-between;gap:15px}.tool-icon{width:52px;height:52px;border-radius:15px;background:#eff6ff;display:grid;place-items:center;font-size:25px}.tag{font-size:11px;font-weight:800;padding:6px 9px;border-radius:999px;background:#f2f4f7;color:#475467;height:max-content}.tool h3{font-size:22px;margin:17px 0 5px}.tool p{color:var(--muted);font-size:14px}.feature{display:flex;gap:9px;margin:9px 0;font-size:13px}.check{color:var(--success);font-weight:900}.tool .btn{margin-top:14px;width:100%}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.step{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 10px 35px #10182808}.step-body{padding:18px}.num{width:30px;height:30px;border-radius:9px;background:#111827;color:#fff;display:grid;place-items:center;font-size:12px;font-weight:900;margin-bottom:12px}.step h3{font-size:16px;margin:0 0 5px}.step p{font-size:13px;color:var(--muted);margin:0}
+.scene{height:185px;background:#f8fafc;padding:14px}.edgebar,.chrome-bar{height:30px;border-radius:8px 8px 0 0;background:#dfe4ea;display:flex;align-items:center;gap:5px;padding:0 8px}.edgebar:before,.chrome-bar:before{content:"";width:7px;height:7px;border-radius:50%;background:#98a2b3;box-shadow:11px 0 #98a2b3,22px 0 #98a2b3}.searchbar{height:25px;background:#fff;border-radius:6px;margin-left:28px;flex:1;border:1px solid #d0d5dd;color:#98a2b3;font-size:8px;padding:5px 7px}.browser-page{height:126px;background:#fff;border:1px solid #e4e7ec;border-top:0;padding:13px;position:relative}.fake-title{font-size:12px;font-weight:850}.fake-line{height:6px;background:#eaecf0;border-radius:4px;width:75%;margin-top:7px}.fake-line.short{width:45%}.menu{position:absolute;right:14px;top:12px;width:105px;background:#fff;border:1px solid #d0d5dd;border-radius:8px;padding:7px;box-shadow:0 8px 20px #10182818}.menu div{font-size:8px;padding:5px;border-radius:4px}.menu div:last-child{background:#eff6ff;color:#1d4ed8;font-weight:800}
+.install-box{background:#111827;color:#fff;border-radius:24px;padding:28px;display:grid;grid-template-columns:1fr 1fr;gap:30px;box-shadow:var(--shadow)}.install-box h2{margin-top:0}.install-box p,.install-box li{color:#cbd5e1;font-size:14px}.install-box ol{padding-left:20px}.warning{margin-top:15px;padding:12px 14px;border-radius:12px;background:#1e293b;border:1px solid #334155;font-size:12px;color:#cbd5e1}
+.faq{display:grid;grid-template-columns:1fr 1fr;gap:14px}.faq details{background:#fff;border:1px solid var(--line);border-radius:15px;padding:15px 17px}.faq summary{cursor:pointer;font-weight:800}.faq p{color:var(--muted);font-size:13px}
+footer{margin-top:55px;border-top:1px solid var(--line);padding:28px 0;color:#667085;font-size:12px}.footer-row{display:flex;justify-content:space-between;gap:20px}
+@media(max-width:800px){.navlinks{display:none}.hero-grid,.tools,.install-box,.faq{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.hero{padding-top:35px}.visual{transform:none}.section{padding:38px 0}}
 </style>
 </head>
 <body>
-<div class="container">
-<nav>
-  <div class="brand"><div class="logo"><span>VQ</span></div><span>VQ Tools</span></div>
-  <div class="nav-right">Official Download Center</div>
-</nav>
-
-<header class="hero">
-  <div class="badge"><span class="dot"></span> Tools siap digunakan</div>
-  <h1>Tools Download Center</h1>
-  <p>Download versi terbaru tools, lalu ikuti panduan instalasi dan penggunaan di bawah. Semua paket tersedia dalam format ZIP.</p>
-  <div class="credit">CREATED BY VQ</div>
+<header>
+  <div class="container nav">
+    <a class="brand" href="#"><span class="brand-mark">BS</span><span>BantuSaku Tools</span></a>
+    <nav class="navlinks"><a href="#tools">Tools</a><a href="#install">Instalasi</a></nav>
+  </div>
 </header>
 
 <main>
-<section>
-  <div class="grid">
-    <article class="card">
-      <div class="card-top">
-        <div class="icon">⚡</div><span class="version">v1.9.0</span>
-      </div>
-      <h2>Scraper Tools V1</h2>
-      <p class="desc">Chrome Extension untuk proses scraping dengan sistem Cloud License. Menu SCRAPE akan aktif setelah license berhasil divalidasi.</p>
-      <div class="tags">
-        <span class="tag">Chrome Extension</span><span class="tag">Cloud License</span><span class="tag">Excel Output</span>
-      </div>
-      <a class="download" href="Scraper-Tools-V1.zip" download>↓ &nbsp; Download Scraper Tools V1</a>
-    </article>
-
-    <article class="card">
-      <div class="card-top">
-        <div class="icon">✉</div><span class="version">v1.0.9</span>
-      </div>
-      <h2>SMS Tools V1</h2>
-      <p class="desc">Chrome Extension untuk Case + Contact Scraper dan workflow SMS dengan output Excel .xlsx yang mempertahankan nilai asli.</p>
-      <div class="tags">
-        <span class="tag">Chrome Extension</span><span class="tag">Scraper</span><span class="tag">SMS</span><span class="tag">XLSX</span>
-      </div>
-      <a class="download" href="SMS-Tools-V1.zip" download>↓ &nbsp; Download SMS Tools V1</a>
-    </article>
+<section class="hero">
+<div class="container hero-grid">
+  <div>
+    <span class="eyebrow">● TOOLS CENTER</span>
+    <h1>Tools kerja yang simpel, cepat, dan profesional.</h1>
+    <p>Satu halaman untuk mengenal, memasang, dan menjalankan <b>Scraper Tools V1</b> serta <b>SMS Tools V1</b> di browser Chrome atau Microsoft Edge.</p>
+    <div class="hero-actions">
+      <a class="btn primary" href="#tools">Lihat Kedua Tools →</a>
+      <a class="btn" href="#install">Panduan Instalasi</a>
+    </div>
+    <div class="hero-note">Versi yang dipasang menggunakan mode Extension / Load unpacked.</div>
   </div>
+  <div class="visual" aria-label="Ilustrasi dashboard extension">
+    <div class="browser">
+      <div class="browser-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span><div class="address">cco-agent.bantusaku.id</div></div>
+      <div class="mock">
+        <div class="mock-head"><div class="mock-title">Scraper Tools V1</div><div class="mock-sub">Workspace • Secure</div></div>
+        <div class="mock-card">
+          <div class="mini-row"><span>License</span><span class="pill">AKTIF</span></div>
+          <div class="mini-row"><span>Status</span><b>Terhubung</b></div>
+          <div class="mini-row"><span>Masa aktif</span><b>30 hari</b></div>
+          <div class="mini-row"><span>Menu</span><b>SCRAPE</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </section>
 
-<section>
-  <div class="section-title">
-    <h2>Cara Penggunaan</h2>
-    <p>Ikuti langkah sesuai tools yang ingin digunakan.</p>
+<section class="section" id="tools">
+<div class="container">
+  <div class="section-head"><div class="kicker">PILIH TOOLS</div><h2>Dua tools, satu alur instalasi.</h2><p>Download folder extension yang sesuai, ekstrak ZIP, lalu muat folder tersebut melalui halaman Extensions browser.</p></div>
+  <div class="tools">
+    <article class="tool">
+      <div class="tool-top"><div class="tool-icon">⚡</div><span class="tag">v1.9.0</span></div>
+      <h3>Scraper Tools V1</h3>
+      <p>Extension untuk workflow scraping dengan workspace, license control, dan output data.</p>
+      <div class="feature"><span class="check">✓</span><span>License activation & status</span></div>
+      <div class="feature"><span class="check">✓</span><span>Menu SCRAPE setelah license aktif</span></div>
+      <div class="feature"><span class="check">✓</span><span>Integrasi session browser</span></div>
+      <a class="btn primary" href="#" onclick="alert('Tambahkan link file ZIP Scraper Tools V1 pada href tombol ini.');return false;">Download Scraper Tools V1</a>
+    </article>
+    <article class="tool">
+      <div class="tool-top"><div class="tool-icon">✉</div><span class="tag">v1.0.9</span></div>
+      <h3>SMS Tools V1</h3>
+      <p>Extension untuk workflow Case + Contact Scraper dan pengolahan data SMS dengan output Excel.</p>
+      <div class="feature"><span class="check">✓</span><span>Case & Contact scraper</span></div>
+      <div class="feature"><span class="check">✓</span><span>SMS workflow dan CSV input</span></div>
+      <div class="feature"><span class="check">✓</span><span>Output Excel .xlsx</span></div>
+      <a class="btn primary" href="#" onclick="alert('Tambahkan link file ZIP SMS Tools V1 pada href tombol ini.');return false;">Download SMS Tools V1</a>
+    </article>
   </div>
+</div>
+</section>
+
+<section class="section" id="install">
+<div class="container">
+  <div class="section-head"><div class="kicker">PANDUAN VISUAL</div><h2>Cara pemasangan lengkap.</h2><p>Langkah berikut berlaku untuk kedua extension. Pastikan ZIP sudah diekstrak sebelum memilih folder extension.</p></div>
   <div class="steps">
-    <div class="step">
-      <div class="num">01</div>
-      <h3>Download & Extract</h3>
-      <p>Download ZIP tools pilihan, kemudian extract ke folder yang mudah ditemukan. Jangan hapus folder setelah extension dipasang.</p>
-    </div>
-    <div class="step">
-      <div class="num">02</div>
-      <h3>Install di Chrome</h3>
-      <p>Buka <b>chrome://extensions</b>, aktifkan <b>Developer mode</b>, pilih <b>Load unpacked</b>, lalu pilih folder hasil extract.</p>
-    </div>
-    <div class="step">
-      <div class="num">03</div>
-      <h3>Jalankan Tools</h3>
-      <p>Buka tab SOSI/CCO Agent sesuai kebutuhan, pastikan sudah login, lalu buka extension dan jalankan fitur yang tersedia.</p>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="section-title">
-    <h2>Panduan Per Tools</h2>
-  </div>
-  <div class="grid">
-    <article class="card">
-      <h2>Scraper Tools V1</h2>
-      <p class="desc">
-        1. Extract ZIP → buka <b>chrome://extensions</b> → Developer mode → Load unpacked.<br>
-        2. Pilih folder hasil extract.<br>
-        3. Buka extension <b>Scraper Tools V1</b>.<br>
-        4. Masukkan <b>License Key</b> dari Owner pada menu LICENSE.<br>
-        5. Klik <b>AKTIVASI</b>. Setelah valid, menu SCRAPE dapat digunakan.<br>
-        6. Jika license expired/revoked/device mismatch, menu SCRAPE akan terkunci kembali.
-      </p>
-      <a class="download" href="Scraper-Tools-V1.zip" download>Download Scraper Tools V1</a>
+    <article class="step">
+      <div class="scene"><div class="chrome-bar"><div class="searchbar">chrome://extensions</div></div><div class="browser-page"><div class="fake-title">Extensions</div><div class="fake-line"></div><div class="fake-line short"></div></div></div>
+      <div class="step-body"><div class="num">01</div><h3>Buka halaman Extensions</h3><p>Chrome: ketik <b>chrome://extensions</b>. Edge: ketik <b>edge://extensions</b>.</p></div>
     </article>
-
-    <article class="card">
-      <h2>SMS Tools V1</h2>
-      <p class="desc">
-        1. Extract ZIP → hapus versi BantuSaku sebelumnya jika ada.<br>
-        2. Buka <b>chrome://extensions</b> → Developer mode → Load unpacked.<br>
-        3. Login ke <b>cco-agent.bantusaku.id</b> dan refresh halaman SOSI.<br>
-        4. Pastikan tab SOSI aktif, kemudian buka extension.<br>
-        5. Pastikan status <b>Login Aktif</b>, lalu jalankan Scrape.<br>
-        6. Jika scraper tidak berjalan, cek menu <b>LOG</b> pada extension.
-      </p>
-      <a class="download" href="SMS-Tools-V1.zip" download>Download SMS Tools V1</a>
+    <article class="step">
+      <div class="scene"><div class="chrome-bar"><div class="searchbar">Developer mode</div></div><div class="browser-page"><div class="fake-title">Extensions</div><div class="menu"><div>Developer mode</div><div>ON ✓</div></div><div class="fake-line"></div></div></div>
+      <div class="step-body"><div class="num">02</div><h3>Aktifkan Developer Mode</h3><p>Nyalakan tombol <b>Developer mode</b> di bagian kanan atas halaman Extensions.</p></div>
+    </article>
+    <article class="step">
+      <div class="scene"><div class="chrome-bar"><div class="searchbar">Load unpacked</div></div><div class="browser-page"><div class="fake-title">Load unpacked</div><div class="fake-line"></div><div class="fake-line short"></div><div class="menu" style="right:14px;top:52px"><div>Folder extension</div><div>manifest.json ✓</div></div></div></div>
+      <div class="step-body"><div class="num">03</div><h3>Pilih Load unpacked</h3><p>Klik <b>Load unpacked</b>, lalu pilih folder hasil ekstrak yang berisi <b>manifest.json</b>.</p></div>
     </article>
   </div>
+
+  <div class="install-box" style="margin-top:20px">
+    <div>
+      <div class="kicker" style="color:#93c5fd">SETUP</div>
+      <h2>Setelah extension berhasil dipasang</h2>
+      <ol>
+        <li>Pastikan extension muncul di daftar dan statusnya aktif.</li>
+        <li>Login ke situs kerja yang digunakan oleh tools.</li>
+        <li>Refresh tab situs setelah extension aktif.</li>
+        <li>Buka extension dari ikon Extensions / puzzle.</li>
+        <li>Untuk Scraper Tools, masukkan license key terlebih dahulu sampai status menjadi <b>AKTIF</b>.</li>
+        <li>Untuk SMS Tools, cek status login lalu jalankan workflow sesuai menu yang tersedia.</li>
+      </ol>
+    </div>
+    <div>
+      <h2>Jika muncul error</h2>
+      <ul>
+        <li>Jangan pilih file ZIP langsung. Pilih <b>folder hasil ekstrak</b>.</li>
+        <li>Pastikan file <b>manifest.json</b> berada langsung di dalam folder yang dipilih.</li>
+        <li>Jika extension diperbarui, hapus versi lama lalu Load unpacked versi terbaru.</li>
+        <li>Refresh halaman situs setelah extension diaktifkan.</li>
+      </ul>
+      <div class="warning">Tip: jangan memindahkan atau menghapus folder extension setelah di-load. Jika folder berubah lokasi, browser dapat menonaktifkan extension sampai dipasang ulang.</div>
+    </div>
+  </div>
+</div>
 </section>
 
-<section>
-  <div class="note"><strong>Catatan:</strong> Kedua tools ini merupakan Chrome Extension. Gunakan hanya pada sistem dan akun yang memang Anda berwenang untuk akses. Untuk Scraper Tools V1, license key diperlukan sebelum fitur scraping dapat digunakan.</div>
-</section>
 </main>
 
-<footer>© 2026 VQ Tools · CREATED BY VQ · Download Center</footer>
-</div>
+<footer>
+<div class="container footer-row"><span>© 2026 BantuSaku Tools</span><span>Created by VQ</span></div>
+</footer>
 </body>
 </html>
