@@ -1,197 +1,556 @@
-<!doctype html>
-<html lang="id">
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Extension Tools — Scraper Tools V3 & SMS Tools V3</title>
-<meta name="description" content="Pusat instalasi dan panduan Extension Scraper Tools V3 dan SMS Tools V3.">
-<style>
-:root{
-  --bg:#f6f8fc;--surface:#fff;--text:#101828;--muted:#667085;--line:#e4e7ec;
-  --primary:#2563eb;--primary2:#1d4ed8;--dark:#0f172a;--success:#067647;
-  --shadow:0 18px 55px rgba(15,23,42,.09);--radius:22px
-}
-*{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;background:radial-gradient(circle at 80% 0,#dbeafe 0,transparent 30%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;line-height:1.6}
-a{text-decoration:none;color:inherit}.container{width:min(1120px,calc(100% - 32px));margin:auto}
-.nav{height:72px;display:flex;align-items:center;justify-content:space-between}
-.brand{display:flex;align-items:center;gap:11px;font-weight:850}.brand-mark{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,#2563eb,#7c3aed);display:grid;place-items:center;color:#fff;font-weight:900;box-shadow:0 9px 24px #2563eb40}
-.navlinks{display:flex;gap:24px;color:#475467;font-size:14px;font-weight:650}.navlinks a:hover{color:var(--primary)}
-.hero{padding:70px 0 54px}.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:42px;align-items:center}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:7px 11px;border:1px solid #bfdbfe;background:#eff6ff;color:#1d4ed8;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:.05em}
-h1{font-size:clamp(38px,6vw,66px);line-height:1.02;letter-spacing:-.055em;margin:18px 0}.hero p{font-size:18px;color:var(--muted);max-width:650px}
-.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 18px;border-radius:13px;font-weight:800;border:1px solid var(--line);background:#fff;box-shadow:0 5px 16px #1018280a}.btn.primary{background:var(--dark);border-color:var(--dark);color:#fff}.btn.primary:hover{transform:translateY(-1px)}
-.hero-note{font-size:12px;color:#98a2b3;margin-top:14px}
-.visual{background:linear-gradient(145deg,#111827,#1e3a8a);border-radius:28px;padding:18px;box-shadow:var(--shadow);transform:rotate(1deg)}
-.browser{background:#fff;border-radius:18px;overflow:hidden}.browser-top{height:42px;background:#eef2f6;display:flex;align-items:center;gap:7px;padding:0 13px}.dot{width:9px;height:9px;border-radius:50%;background:#cbd5e1}.address{height:25px;background:#fff;border:1px solid #e5e7eb;border-radius:7px;flex:1;margin-left:6px;color:#98a2b3;font-size:9px;padding:5px 9px}
-.mock{padding:18px;background:#f8fafc}.mock-head{background:linear-gradient(135deg,#111827,#1e3a8a);color:#fff;border-radius:13px;padding:14px}.mock-title{font-size:15px;font-weight:850}.mock-sub{font-size:9px;color:#cbd5e1}.mock-card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;margin-top:11px;padding:12px}.mini-row{display:flex;justify-content:space-between;font-size:10px;padding:6px 0;border-bottom:1px solid #f0f2f5}.mini-row:last-child{border:0}.pill{display:inline-block;padding:3px 7px;border-radius:999px;font-size:8px;font-weight:800;background:#dcfce7;color:#166534}
-.section{padding:54px 0}.section-head{max-width:700px;margin-bottom:25px}.kicker{font-size:11px;font-weight:900;color:var(--primary);letter-spacing:.1em}.section h2{font-size:34px;line-height:1.1;letter-spacing:-.035em;margin:7px 0}.section-head p{color:var(--muted)}
-.tools{display:grid;grid-template-columns:1fr 1fr;gap:20px}.tool{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}.tool-top{display:flex;justify-content:space-between;gap:15px}.tool-icon{width:52px;height:52px;border-radius:15px;background:#eff6ff;display:grid;place-items:center;font-size:25px}.tag{font-size:11px;font-weight:800;padding:6px 9px;border-radius:999px;background:#f2f4f7;color:#475467;height:max-content}.tool h3{font-size:22px;margin:17px 0 5px}.tool p{color:var(--muted);font-size:14px}.feature{display:flex;gap:9px;margin:9px 0;font-size:13px}.check{color:var(--success);font-weight:900}.tool .btn{margin-top:14px;width:100%}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.step{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 10px 35px #10182808}.step-body{padding:18px}.num{width:30px;height:30px;border-radius:9px;background:#111827;color:#fff;display:grid;place-items:center;font-size:12px;font-weight:900;margin-bottom:12px}.step h3{font-size:16px;margin:0 0 5px}.step p{font-size:13px;color:var(--muted);margin:0}
-.scene{height:185px;background:#f8fafc;padding:14px}.edgebar,.chrome-bar{height:30px;border-radius:8px 8px 0 0;background:#dfe4ea;display:flex;align-items:center;gap:5px;padding:0 8px}.edgebar:before,.chrome-bar:before{content:"";width:7px;height:7px;border-radius:50%;background:#98a2b3;box-shadow:11px 0 #98a2b3,22px 0 #98a2b3}.searchbar{height:25px;background:#fff;border-radius:6px;margin-left:28px;flex:1;border:1px solid #d0d5dd;color:#98a2b3;font-size:8px;padding:5px 7px}.browser-page{height:126px;background:#fff;border:1px solid #e4e7ec;border-top:0;padding:13px;position:relative}.fake-title{font-size:12px;font-weight:850}.fake-line{height:6px;background:#eaecf0;border-radius:4px;width:75%;margin-top:7px}.fake-line.short{width:45%}.menu{position:absolute;right:14px;top:12px;width:105px;background:#fff;border:1px solid #d0d5dd;border-radius:8px;padding:7px;box-shadow:0 8px 20px #10182818}.menu div{font-size:8px;padding:5px;border-radius:4px}.menu div:last-child{background:#eff6ff;color:#1d4ed8;font-weight:800}
-.install-box{background:#111827;color:#fff;border-radius:24px;padding:28px;display:grid;grid-template-columns:1fr 1fr;gap:30px;box-shadow:var(--shadow)}.install-box h2{margin-top:0}.install-box p,.install-box li{color:#cbd5e1;font-size:14px}.install-box ol{padding-left:20px}.warning{margin-top:15px;padding:12px 14px;border-radius:12px;background:#1e293b;border:1px solid #334155;font-size:12px;color:#cbd5e1}
-.faq{display:grid;grid-template-columns:1fr 1fr;gap:14px}.faq details{background:#fff;border:1px solid var(--line);border-radius:15px;padding:15px 17px}.faq summary{cursor:pointer;font-weight:800}.faq p{color:var(--muted);font-size:13px}
-footer{margin-top:55px;border-top:1px solid var(--line);padding:28px 0;color:#667085;font-size:12px}.footer-row{display:flex;justify-content:space-between;gap:20px}
-@media(max-width:800px){.navlinks{display:none}.hero-grid,.tools,.install-box,.faq{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.hero{padding-top:35px}.visual{transform:none}.section{padding:38px 0}}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extension Tools — Scraper Tools V3 & SMS Tools V3</title>
+    <meta name="description" content="Pusat instalasi dan panduan Extension Scraper Tools V3 dan SMS Tools V3.">
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
-.warning-overlay{position:fixed;inset:0;background:rgba(15,23,42,.72);backdrop-filter:blur(7px);display:flex;align-items:center;justify-content:center;padding:20px;z-index:9999}
-.warning-modal{width:min(680px,100%);background:#fff;border:1px solid #fecaca;border-radius:24px;box-shadow:0 28px 90px rgba(15,23,42,.28);overflow:hidden}
-.warning-head{padding:20px 24px;background:linear-gradient(135deg,#fff7ed,#fef2f2);border-bottom:1px solid #fee2e2;display:flex;align-items:center;gap:14px}
-.warning-icon{width:46px;height:46px;border-radius:14px;background:#fee2e2;color:#b91c1c;display:grid;place-items:center;font-size:24px;flex:0 0 auto}
-.warning-head h2{margin:0;font-size:21px;letter-spacing:-.02em}.warning-body{padding:22px 24px;color:#344054;font-size:14px}.warning-body strong{color:#b42318}.warning-body p{margin:0 0 16px}.warning-body p:last-child{margin-bottom:0}
-.warning-actions{padding:0 24px 24px;display:flex;justify-content:flex-end}.warning-btn{border:0;border-radius:12px;padding:12px 18px;background:#111827;color:#fff;font-weight:800;cursor:pointer}.warning-btn:hover{transform:translateY(-1px)}
-body.warning-open{overflow:hidden}
-@media(max-width:600px){.warning-modal{border-radius:18px}.warning-head,.warning-body,.warning-actions{padding-left:18px;padding-right:18px}.warning-head h2{font-size:18px}}
-</style>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                        },
+                        dark: '#0f172a'
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-out forwards',
+                        'slide-up': 'slideUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS for components not easily handled by Tailwind utilities -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            background-image: radial-gradient(circle at top right, #e0e7ff 0%, transparent 40%),
+                              radial-gradient(circle at bottom left, #dbeafe 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        /* Hide scrollbar when modal is open */
+        .no-scroll {
+            overflow: hidden;
+        }
+
+        /* Glassmorphism for Header */
+        .glass-header {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Custom styling for FAQ Details */
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+        
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        details[open] .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #1d4ed8, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Modal Transition */
+        #warningOverlay {
+            transition: opacity 0.4s ease, backdrop-filter 0.4s ease;
+        }
+    </style>
 </head>
-<body>
-<header>
-  <div class="container nav">
-    <a class="brand" href="#"><span class="brand-mark">BS</span><span>Extension Tools</span></a>
-    <nav class="navlinks"><a href="#tools">Tools</a><a href="#install">Instalasi</a><a href="#faq">FAQ</a></nav>
-  </div>
-</header>
+<body class="text-slate-800 antialiased no-scroll">
 
-<main>
-<section class="hero">
-<div class="container hero-grid">
-  <div>
-    <span class="eyebrow">● Scraper Tools + SMS Blast Tools</span>
-    <h1>Tools kerja yang simpel, cepat, dan lebih efisien.</h1>
-    <p>Satu halaman untuk mengenal, memasang, dan menjalankan <b>Scraper Tools V3</b> serta <b>SMS Tools V3</b> di browser Chrome atau Microsoft Edge.</p>
-    <div class="hero-actions">
-      <a class="btn primary" href="#tools">Lihat Kedua Tools →</a>
-      <a class="btn" href="#install">Panduan Instalasi</a>
-    </div>
-    <div class="hero-note">Versi yang dipasang menggunakan mode Extension / Load unpacked.</div>
-  </div>
-  <div class="visual" aria-label="Ilustrasi dashboard extension">
-    <div class="browser">
-      <div class="browser-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span><div class="address">cco-agent.bantusaku.id</div></div>
-      <div class="mock">
-        <div class="mock-head"><div class="mock-title">Scraper Tools V3</div><div class="mock-sub">Workspace • Secure</div></div>
-        <div class="mock-card">
-          <div class="mini-row"><span>License</span><span class="pill">AKTIF</span></div>
-          <div class="mini-row"><span>Status</span><b>Terhubung</b></div>
-          <div class="mini-row"><span>Masa aktif</span><b>1-30 hari</b></div>
-          <div class="mini-row"><span>Menu</span><b>SCRAPE</b></div>
+    <!-- Warning Modal -->
+    <div id="warningOverlay" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
+        <div class="bg-white rounded-3xl shadow-2xl max-w-lg w-full overflow-hidden flex flex-col transform transition-transform scale-100 border border-red-100">
+            <div class="bg-gradient-to-br from-red-50 to-orange-50 p-6 border-b border-red-100 flex items-center gap-4">
+                <div class="flex-shrink-0 w-12 h-12 bg-red-100 rounded-2xl flex items-center justify-center text-red-600 text-2xl">
+                    <i class="ph-fill ph-warning-circle"></i>
+                </div>
+                <h2 class="text-xl font-bold text-slate-900 leading-tight">Peringatan Penggunaan Tools</h2>
+            </div>
+            <div class="p-6 text-slate-600 space-y-4 text-sm leading-relaxed">
+                <p><strong class="text-red-700">Pembuat Tools tidak bertanggung jawab atas penyalahgunaan data yang melanggar aturan.</strong></p>
+                <p>Tools ini dibuat hanya untuk mempermudah agar pekerjaan lebih cepat dan efisien dalam operasional harian.</p>
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    <p class="font-medium text-slate-800">Perhatian Khusus:</p>
+                    <p class="mt-1 text-slate-600"><B>PEMEGANG DATA REMINDER DAN JATUH TEMPO<B> <strong>dilarang keras</strong> menggunakan tools ini.</p>
+                </div>
+            </div>
+            <div class="p-6 bg-slate-50 border-t border-slate-100 flex justify-end">
+                <button id="warningContinue" class="px-6 py-3 bg-slate-900 hover:bg-slate-800 text-white text-sm font-semibold rounded-xl shadow-lg shadow-slate-900/20 transition-all transform hover:-translate-y-0.5 active:translate-y-0">
+                    Saya Mengerti & Lanjutkan
+                </button>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-</div>
-</section>
 
-<section class="section" id="tools">
-<div class="container">
-  <div class="section-head"><div class="kicker">● Pilihan Tools</div><h2>Dua tools, satu alur instalasi.</h2><p>Download folder extension yang sesuai, ekstrak ZIP, lalu muat folder tersebut melalui halaman Extensions browser.</p></div>
-  <div class="tools">
-    <article class="tool">
-      <div class="tool-top"><div class="tool-icon">⚡</div><span class="tag">v1.9.0</span></div>
-      <h3>Scraper Tools V3 (Penarikan ALL Data)</h3>
-      <p>Extension untuk workflow scraping dengan workspace, license control, dan output data.</p>
-      <div class="feature"><span class="check">✓</span><span>Penarikan data lebih cepat dan mudah</span></div>
-      <div class="feature"><span class="check">✓</span><span>Data sesuai dengan pemegang sistem</span></div>
-      <div class="feature"><span class="check">✓</span><span>Hanya dengan sekali tekan data auto download</span></div>
-      <a class="btn primary" href="Scraper Tools V3.zip" download>Download Scraper Tools V3</a>
-    </article>
-    <article class="tool">
-      <div class="tool-top"><div class="tool-icon">✉</div><span class="tag">v1.0.9</span></div>
-      <h3>SMS Tools V3 (Blast SMS)</h3>
-      <p>Extension untuk workflow Case + Contact Scraper dan pengolahan data SMS dengan output Excel.</p>
-      <div class="feature"><span class="check">✓</span><span>Case & Contact scraper for SMS</span></div>
-      <div class="feature"><span class="check">✓</span><span>SMS workflow dan Report hasil sms</span></div>
-      <div class="feature"><span class="check">✓</span><span>Output Excel .xlsx</span></div>
-      <a class="btn primary" href="SMS TOOLS V3.zip" download>Download SMS Tools V3</a>
-    </article>
-  </div>
-</div>
-</section>
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-40 glass-header shadow-sm transition-all">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 text-white flex items-center justify-center font-bold text-lg shadow-lg shadow-blue-500/30 group-hover:shadow-blue-500/50 transition-all">
+                    BS
+                </div>
+                <span class="font-bold text-xl tracking-tight text-slate-900">Extension Tools</span>
+            </a>
+            
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-slate-600">
+                <a href="#tools" class="hover:text-blue-600 transition-colors">Tools</a>
+                <a href="#install" class="hover:text-blue-600 transition-colors">Instalasi</a>
+                <a href="#faq" class="hover:text-blue-600 transition-colors">FAQ</a>
+                <a href="#tools" class="px-5 py-2.5 bg-blue-50 text-blue-700 hover:bg-blue-100 rounded-lg font-semibold transition-colors">
+                    Download
+                </a>
+            </nav>
+        </div>
+    </header>
 
-<section class="section" id="install">
-<div class="container">
-  <div class="section-head"><div class="kicker">● Panduan</div><h2>Cara pemasangan lengkap.</h2><p>Langkah berikut berlaku untuk kedua extension. Pastikan ZIP sudah diekstrak sebelum memilih folder extension.</p></div>
-  <div class="steps">
-    <article class="step">
-      <div class="scene"><div class="chrome-bar"><div class="searchbar">chrome://extensions</div></div><div class="browser-page"><div class="fake-title">Extensions</div><div class="fake-line"></div><div class="fake-line short"></div></div></div>
-      <div class="step-body"><div class="num">01</div><h3>Buka halaman Extensions</h3><p>Chrome: ketik <b>chrome://extensions</b>. Edge: ketik <b>edge://extensions</b>.</p></div>
-    </article>
-    <article class="step">
-      <div class="scene"><div class="chrome-bar"><div class="searchbar">Developer mode</div></div><div class="browser-page"><div class="fake-title">Extensions</div><div class="menu"><div>Developer mode</div><div>ON ✓</div></div><div class="fake-line"></div></div></div>
-      <div class="step-body"><div class="num">02</div><h3>Aktifkan Developer Mode</h3><p>Nyalakan tombol <b>Developer mode</b> di bagian kanan atas halaman Extensions.</p></div>
-    </article>
-    <article class="step">
-      <div class="scene"><div class="chrome-bar"><div class="searchbar">Load unpacked</div></div><div class="browser-page"><div class="fake-title">Load unpacked</div><div class="fake-line"></div><div class="fake-line short"></div><div class="menu" style="right:14px;top:52px"><div>Folder extension</div><div>manifest.json ✓</div></div></div></div>
-      <div class="step-body"><div class="num">03</div><h3>Pilih Load unpacked</h3><p>Klik <b>Load unpacked</b>, lalu pilih folder hasil ekstrak yang berisi <b>manifest.json</b>.</p></div>
-    </article>
-  </div>
+    <main class="pt-28 pb-20">
+        <!-- Hero Section -->
+        <section class="max-w-7xl mx-auto px-6 py-12 lg:py-24 grid lg:grid-cols-2 gap-12 lg:gap-8 items-center animate-slide-up">
+            <div class="max-w-2xl">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-xs font-bold uppercase tracking-wider mb-6">
+                    <span class="relative flex h-2 w-2">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                    </span>
+                    Scraper & SMS Blast
+                </div>
+                <h1 class="text-4xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.1] mb-6">
+                    Tools kerja yang <span class="gradient-text">simpel, cepat,</span> dan lebih efisien.
+                </h1>
+                <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+                    Satu halaman untuk mengenal, memasang, dan menjalankan <b>Scraper Tools V3</b> serta <b>SMS Tools V3</b> di browser Chrome atau Microsoft Edge kesayangan Anda.
+                </p>
+                
+                <div class="flex flex-wrap items-center gap-4">
+                    <a href="#tools" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-slate-900 hover:bg-slate-800 text-white rounded-xl font-semibold shadow-xl shadow-slate-900/20 transition-all transform hover:-translate-y-0.5">
+                        Lihat Kedua Tools
+                        <i class="ph-bold ph-arrow-right"></i>
+                    </a>
+                    <a href="#install" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 rounded-xl font-semibold shadow-sm transition-all">
+                        Panduan Instalasi
+                    </a>
+                </div>
+                <p class="text-xs font-medium text-slate-400 mt-5 flex items-center gap-1.5">
+                    <i class="ph-fill ph-info"></i> Versi terpasang menggunakan mode Extension / Load unpacked.
+                </p>
+            </div>
 
-  <div class="install-box" style="margin-top:20px">
-    <div>
-      <div class="kicker" style="color:#93c5fd">SETUP</div>
-      <h2>Setelah extension berhasil dipasang</h2>
-      <ol>
-        <li>Pastikan extension muncul di daftar dan statusnya aktif.</li>
-        <li>Login ke situs kerja yang digunakan oleh tools.</li>
-        <li>Refresh tab situs setelah extension aktif.</li>
-        <li>Buka extension dari ikon Extensions / puzzle.</li>
-        <li>Untuk Scraper Tools, masukkan license key terlebih dahulu sampai status menjadi <b>AKTIF</b>.</li>
-        <li>Untuk SMS Tools, cek status login lalu jalankan workflow sesuai menu yang tersedia.</li>
-      </ol>
-    </div>
-    <div>
-      <h2>Jika muncul error</h2>
-      <ul>
-        <li>Jangan pilih file ZIP langsung. Pilih <b>folder hasil ekstrak</b>.</li>
-        <li>Pastikan file <b>manifest.json</b> berada langsung di dalam folder yang dipilih.</li>
-        <li>Jika extension diperbarui, hapus versi lama lalu Load unpacked versi terbaru.</li>
-        <li>Refresh halaman situs setelah extension diaktifkan.</li>
-      </ul>
-      <div class="warning">Tip: jangan memindahkan atau menghapus folder extension setelah di-load. Jika folder berubah lokasi, browser dapat menonaktifkan extension sampai dipasang ulang.</div>
-    </div>
-  </div>
-</div>
-</section>
+            <!-- Browser Mockup Visual -->
+            <div class="relative perspective-1000">
+                <div class="relative bg-white rounded-2xl shadow-2xl shadow-blue-900/10 border border-slate-200 overflow-hidden transform lg:rotate-2 lg:hover:rotate-0 transition-transform duration-500 max-w-[500px] ml-auto z-10">
+                    <!-- Browser Chrome -->
+                    <div class="bg-slate-100 border-b border-slate-200 px-4 py-3 flex items-center gap-3">
+                        <div class="flex gap-1.5">
+                            <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                            <div class="w-3 h-3 rounded-full bg-amber-400"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                        </div>
+                        <div class="flex-1 bg-white rounded-md border border-slate-200 px-3 py-1.5 flex items-center gap-2 text-xs text-slate-500 font-medium">
+                            <i class="ph-fill ph-lock-key text-slate-400"></i>
+                            cco-agent.bantusaku.id
+                        </div>
+                        <div class="w-6 h-6 rounded bg-slate-200 flex items-center justify-center text-slate-600">
+                            <i class="ph-bold ph-puzzle-piece"></i>
+                        </div>
+                    </div>
+                    <!-- Extension Popup Mock -->
+                    <div class="p-6 bg-slate-50/50">
+                        <div class="bg-white rounded-xl shadow-lg border border-slate-100 overflow-hidden relative">
+                            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-indigo-500"></div>
+                            <div class="p-5">
+                                <div class="flex justify-between items-start mb-4">
+                                    <div>
+                                        <h3 class="font-bold text-slate-900 text-sm">Scraper Tools V3</h3>
+                                        <p class="text-[10px] text-slate-500 font-medium mt-0.5">Workspace • Secure</p>
+                                    </div>
+                                    <span class="px-2 py-1 bg-green-100 text-green-700 text-[9px] font-bold rounded uppercase tracking-wider">Aktif</span>
+                                </div>
+                                <div class="space-y-2 text-xs">
+                                    <div class="flex justify-between p-2 rounded bg-slate-50 border border-slate-100">
+                                        <span class="text-slate-500">Status</span>
+                                        <span class="font-semibold text-blue-600 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>Terhubung</span>
+                                    </div>
+                                    <div class="flex justify-between p-2 rounded bg-slate-50 border border-slate-100">
+                                        <span class="text-slate-500">Masa aktif</span>
+                                        <span class="font-semibold text-slate-700">1-30 hari</span>
+                                    </div>
+                                    <div class="flex justify-between p-2 rounded bg-slate-50 border border-slate-100">
+                                        <span class="text-slate-500">Menu</span>
+                                        <span class="font-bold text-slate-900">SCRAPE</span>
+                                    </div>
+                                </div>
+                                <button class="w-full mt-4 bg-slate-900 text-white text-xs font-semibold py-2.5 rounded-lg">Buka Workspace</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Decorative background blob -->
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-r from-blue-400/20 to-purple-400/20 blur-3xl -z-10 rounded-full pointer-events-none"></div>
+            </div>
+        </section>
 
-<section class="section" id="faq">
-<div class="container">
-  <div class="section-head"><div class="kicker">● Update</div><h2>Pertanyaan umum.</h2></div>
-  <div class="faq">
-    <details open><summary>Apakah ZIP langsung bisa dipilih?</summary><p>Tidak. Ekstrak ZIP terlebih dahulu, kemudian pilih folder yang di dalamnya terdapat file <b>manifest.json</b>.</p></details>
-    <details><summary>Bisa dipasang di Microsoft Edge?</summary><p>Extension berbasis Chromium dapat dimuat melalui halaman Edge Extensions menggunakan Developer mode dan Load unpacked.</p></details>
-    <details><summary>Kenapa menu scraper masih terkunci?</summary><p>Pada Scraper Tools, menu SCRAPE dirancang terbuka setelah license berhasil diaktifkan.</p></details>
-    <details><summary>Perlu login ulang setelah instalasi?</summary><p>Ikuti status login pada extension. Jika session belum terbaca, login di tab situs lalu refresh halaman dan buka extension kembali.</p></details>
-  </div>
-</div>
-</section>
-</main>
+        <!-- Tools Section -->
+        <section id="tools" class="py-16">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center max-w-2xl mx-auto mb-14">
+                    <h2 class="text-blue-600 font-bold text-sm tracking-widest uppercase mb-2">Pilihan Tools</h2>
+                    <h3 class="text-3xl font-extrabold text-slate-900 mb-4">Dua tools, satu alur instalasi.</h3>
+                    <p class="text-slate-600">Download folder extension yang sesuai kebutuhan Anda, ekstrak file ZIP, lalu muat folder tersebut melalui halaman Extensions browser.</p>
+                </div>
 
-<footer>
-<div class="container footer-row"><span>© 2026 Tools</span><span>Created by VQ</span></div>
-</footer>
+                <div class="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
+                    <!-- Scraper Tool Card -->
+                    <div class="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/40 border border-slate-100 hover:shadow-2xl hover:border-blue-100 transition-all duration-300 group flex flex-col h-full">
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                                <i class="ph-fill ph-lightning"></i>
+                            </div>
+                            <span class="bg-slate-100 text-slate-600 text-xs font-bold px-3 py-1.5 rounded-full">v1.9.0</span>
+                        </div>
+                        <h4 class="text-2xl font-bold text-slate-900 mb-3">Scraper Tools V3</h4>
+                        <p class="text-sm font-semibold text-blue-600 mb-4">Penarikan ALL Data</p>
+                        <p class="text-slate-600 text-sm mb-6 flex-1">Extension profesional untuk workflow scraping yang dilengkapi dengan workspace mandiri, license control terpusat, dan otomatisasi output data.</p>
+                        
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-start gap-3 text-sm text-slate-700 font-medium">
+                                <i class="ph-bold ph-check-circle text-green-500 mt-0.5 text-base"></i>
+                                Penarikan data jauh lebih cepat dan mudah
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-slate-700 font-medium">
+                                <i class="ph-bold ph-check-circle text-green-500 mt-0.5 text-base"></i>
+                                Akurasi data 100% sesuai sistem utama
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-slate-700 font-medium">
+                                <i class="ph-bold ph-check-circle text-green-500 mt-0.5 text-base"></i>
+                                1-Click Auto Download ke device
+                            </li>
+                        </ul>
+                        
+                        <a href="Scraper Tools V3.zip" download class="block w-full py-3.5 px-4 bg-slate-900 hover:bg-blue-600 text-white text-center rounded-xl font-bold transition-colors">
+                            Download Scraper V3
+                        </a>
+                    </div>
 
-<div class="warning-overlay" id="warningOverlay" role="dialog" aria-modal="true" aria-labelledby="warningTitle">
-  <div class="warning-modal">
-    <div class="warning-head">
-      <div class="warning-icon">⚠</div>
-      <div><h2 id="warningTitle">Peringatan Penggunaan Tools</h2></div>
-    </div>
-    <div class="warning-body">
-      <p><strong>Pembuat Tools tidak bertanggung jawab atas penyalahgunaan data yang melanggar aturan.</strong></p>
-      <p>Tools ini di buat hanya untuk mempermudah agar pekerjaan lebih cepat dan efisien. </p>
-      <p>Pemegang data Reminder dan Jatuh Tempo di larang keras menggunakan tools ini.</p>
-    </div>
-    <div class="warning-actions">
-      <button class="warning-btn" id="warningContinue">Saya Mengerti &amp; Lanjutkan</button>
-    </div>
-  </div>
-</div>
-<script>
-document.body.classList.add('warning-open');
-document.getElementById('warningContinue').addEventListener('click', function(){
-  document.getElementById('warningOverlay').remove();
-  document.body.classList.remove('warning-open');
-});
-</script>
+                    <!-- SMS Tool Card -->
+                    <div class="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/40 border border-slate-100 hover:shadow-2xl hover:border-purple-100 transition-all duration-300 group flex flex-col h-full">
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-14 h-14 bg-purple-50 text-purple-600 rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                                <i class="ph-fill ph-envelope-simple"></i>
+                            </div>
+                            <span class="bg-slate-100 text-slate-600 text-xs font-bold px-3 py-1.5 rounded-full">v1.0.9</span>
+                        </div>
+                        <h4 class="text-2xl font-bold text-slate-900 mb-3">SMS Tools V3</h4>
+                        <p class="text-sm font-semibold text-purple-600 mb-4">Blast SMS & Workflow</p>
+                        <p class="text-slate-600 text-sm mb-6 flex-1">Solusi komprehensif untuk workflow Case + Contact Scraper sekaligus pengolahan data SMS langsung dengan output format Excel.</p>
+                        
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-start gap-3 text-sm text-slate-700 font-medium">
+                                <i class="ph-bold ph-check-circle text-green-500 mt-0.5 text-base"></i>
+                                Ekstraksi Case & Contact khusus SMS
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-slate-700 font-medium">
+                                <i class="ph-bold ph-check-circle text-green-500 mt-0.5 text-base"></i>
+                                Terintegrasi dengan Report Hasil SMS
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-slate-700 font-medium">
+                                <i class="ph-bold ph-check-circle text-green-500 mt-0.5 text-base"></i>
+                                Output instan berformat Excel (.xlsx)
+                            </li>
+                        </ul>
+                        
+                        <a href="SMS TOOLS V3.zip" download class="block w-full py-3.5 px-4 bg-slate-900 hover:bg-purple-600 text-white text-center rounded-xl font-bold transition-colors">
+                            Download SMS V3
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Installation Guide -->
+        <section id="install" class="py-16 bg-white border-y border-slate-100">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="max-w-2xl mb-12">
+                    <h2 class="text-blue-600 font-bold text-sm tracking-widest uppercase mb-2">Panduan Instalasi</h2>
+                    <h3 class="text-3xl font-extrabold text-slate-900 mb-4">Cara pemasangan lengkap.</h3>
+                    <p class="text-slate-600">Langkah berikut berlaku untuk kedua extension. Pastikan file ZIP <strong class="text-slate-800">sudah diekstrak</strong> sebelum memuat foldernya ke browser.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+                    <!-- Step 1 -->
+                    <div class="bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">
+                        <div class="h-40 bg-slate-200/50 p-4 relative">
+                            <div class="bg-white rounded-t-lg h-full border-x border-t border-slate-200 shadow-sm flex flex-col">
+                                <div class="bg-slate-100 p-2 flex items-center gap-2 border-b border-slate-200">
+                                    <div class="w-2.5 h-2.5 rounded-full bg-slate-300"></div>
+                                    <div class="bg-white border border-slate-200 rounded px-2 py-1 flex-1 text-[10px] text-slate-500 font-mono">
+                                        chrome://extensions
+                                    </div>
+                                </div>
+                                <div class="p-4 bg-white flex-1 relative">
+                                    <div class="w-1/2 h-3 bg-slate-200 rounded mb-2"></div>
+                                    <div class="w-1/3 h-2 bg-slate-100 rounded"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center font-bold mb-4">01</div>
+                            <h4 class="text-lg font-bold text-slate-900 mb-2">Buka Halaman Extensions</h4>
+                            <p class="text-sm text-slate-600 leading-relaxed">Untuk Chrome: ketik <b>chrome://extensions</b> di address bar. Untuk Edge: ketik <b>edge://extensions</b>.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">
+                        <div class="h-40 bg-slate-200/50 p-4 relative">
+                            <div class="bg-white rounded-t-lg h-full border-x border-t border-slate-200 shadow-sm flex flex-col">
+                                <div class="bg-slate-100 p-2 flex items-center border-b border-slate-200">
+                                    <div class="bg-white border border-slate-200 rounded px-2 py-1 flex-1 text-[10px] text-slate-400">Settings</div>
+                                </div>
+                                <div class="p-4 flex justify-end">
+                                    <div class="bg-white border border-blue-200 rounded-lg p-2 shadow-sm text-[10px] flex items-center gap-2">
+                                        <span class="font-medium text-slate-700">Developer mode</span>
+                                        <div class="w-6 h-3.5 bg-blue-500 rounded-full relative"><div class="absolute right-0.5 top-0.5 w-2.5 h-2.5 bg-white rounded-full"></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center font-bold mb-4">02</div>
+                            <h4 class="text-lg font-bold text-slate-900 mb-2">Aktifkan Developer Mode</h4>
+                            <p class="text-sm text-slate-600 leading-relaxed">Temukan dan nyalakan toggle <b>Developer mode</b> yang biasanya terletak di pojok kanan atas halaman.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">
+                        <div class="h-40 bg-slate-200/50 p-4 relative">
+                            <div class="bg-white rounded-t-lg h-full border-x border-t border-slate-200 shadow-sm flex flex-col">
+                                <div class="bg-slate-100 p-2 flex items-center border-b border-slate-200 gap-2">
+                                    <div class="bg-blue-600 text-white rounded px-2 py-1 text-[10px] font-medium shadow-sm">Load unpacked</div>
+                                    <div class="bg-white border border-slate-200 rounded px-2 py-1 text-[10px] text-slate-600">Pack extension</div>
+                                </div>
+                                <div class="p-4 flex items-center justify-center h-full">
+                                    <div class="border-2 border-dashed border-slate-300 rounded-lg p-3 w-full text-center text-[10px] text-slate-500 flex flex-col items-center">
+                                        <i class="ph-bold ph-folder-open text-base mb-1 text-slate-400"></i>
+                                        Pilih Folder (berisi manifest.json)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center font-bold mb-4">03</div>
+                            <h4 class="text-lg font-bold text-slate-900 mb-2">Load Unpacked</h4>
+                            <p class="text-sm text-slate-600 leading-relaxed">Klik tombol <b>Load unpacked</b>, lalu arahkan dan pilih folder hasil ekstrak yang di dalamnya terdapat file <b>manifest.json</b>.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Setup & Error Guide Box -->
+                <div class="mt-12 bg-slate-900 rounded-3xl p-8 lg:p-12 text-slate-300 grid lg:grid-cols-2 gap-12 relative overflow-hidden shadow-2xl">
+                    <!-- Decor -->
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="text-blue-400 font-bold text-xs tracking-widest uppercase mb-3 flex items-center gap-2">
+                            <i class="ph-bold ph-gear"></i> Setup Lanjutan
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-6">Setelah instalasi berhasil</h3>
+                        <ol class="space-y-4 list-decimal pl-4 marker:text-slate-500 marker:font-bold">
+                            <li class="pl-2">Pastikan extension muncul di daftar browser dan toggle statusnya aktif.</li>
+                            <li class="pl-2">Login ke situs kerja sistem utama yang digunakan oleh tools.</li>
+                            <li class="pl-2"><strong class="text-white">Refresh (F5)</strong> tab situs setelah extension dipastikan aktif.</li>
+                            <li class="pl-2">Buka UI extension dengan mengklik ikon extension / puzzle di pojok kanan atas browser.</li>
+                            <li class="pl-2 text-blue-100">Untuk <b>Scraper Tools</b>: Masukkan <i>License Key</i> terlebih dahulu hingga indikator status menjadi <b>AKTIF</b> Minta License Key Ke Admin.</li>
+                            <li class="pl-2 text-purple-100">Untuk <b>SMS Tools</b>: Cek status login akun, lalu jalankan workflow sesuai menu.</li>
+                        </ol>
+                    </div>
+
+                    <div class="relative z-10 border-t lg:border-t-0 lg:border-l border-slate-800 pt-8 lg:pt-0 lg:pl-12">
+                        <div class="text-red-400 font-bold text-xs tracking-widest uppercase mb-3 flex items-center gap-2">
+                            <i class="ph-bold ph-warning-octagon"></i> Troubleshooting
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-6">Jika muncul error</h3>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-start gap-3">
+                                <i class="ph-bold ph-x-circle text-red-400 mt-1"></i>
+                                <span>Jangan pilih file ZIP langsung. Anda wajib memilih <b>folder hasil ekstrak</b>.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="ph-bold ph-file-code text-blue-400 mt-1"></i>
+                                <span>Select Folder</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="ph-bold ph-arrows-clockwise text-blue-400 mt-1"></i>
+                                <span>Jika melakukan update/pembaruan, hapus versi lama terlebih dahulu, lalu Load unpacked folder versi baru, dan <b>refresh tab web</b>.</span>
+                            </li>
+                        </ul>
+                        <div class="bg-slate-800/50 border border-slate-700 p-4 rounded-xl text-xs text-slate-400 flex items-start gap-3">
+                            <i class="ph-fill ph-info text-blue-400 text-lg flex-shrink-0"></i>
+                            <p><b>Penting:</b> Jangan memindahkan atau menghapus folder extension dari komputer Anda setelah berhasil di-load. Jika folder berubah lokasi, browser akan mendeteksi error dan menonaktifkan extension tersebut sampai dipasang ulang dari lokasi yang baru.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-16">
+            <div class="max-w-3xl mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-blue-600 font-bold text-sm tracking-widest uppercase mb-2">Informasi</h2>
+                    <h3 class="text-3xl font-extrabold text-slate-900">Pertanyaan umum (FAQ)</h3>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- FAQ 1 -->
+                    <details class="group bg-white border border-slate-200 rounded-2xl hover:border-blue-300 transition-colors" open>
+                        <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-5 text-slate-900">
+                            Apakah file ZIP langsung bisa dipilih saat instalasi?
+                            <span class="faq-icon text-slate-400 group-hover:text-blue-500">
+                                <i class="ph-bold ph-caret-down"></i>
+                            </span>
+                        </summary>
+                        <div class="text-slate-600 text-sm p-5 pt-0 leading-relaxed border-t border-slate-100 mt-2 pt-4">
+                            Tidak bisa. Sistem browser mensyaratkan format folder. Ekstrak ZIP terlebih dahulu, kemudian saat menggunakan opsi "Load unpacked", pilih folder hasil ekstrak.
+                        </div>
+                    </details>
+                    
+                    <!-- FAQ 2 -->
+                    <details class="group bg-white border border-slate-200 rounded-2xl hover:border-blue-300 transition-colors">
+                        <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-5 text-slate-900">
+                            Apakah tools ini bisa dipasang di Microsoft Edge?
+                            <span class="faq-icon text-slate-400 group-hover:text-blue-500">
+                                <i class="ph-bold ph-caret-down"></i>
+                            </span>
+                        </summary>
+                        <div class="text-slate-600 text-sm p-5 pt-0 leading-relaxed border-t border-slate-100 mt-2 pt-4">
+                            Sangat bisa. Extension ini berbasis mesin Chromium, sehingga kompatibel dengan Microsoft Edge. Anda hanya perlu membuka halaman Extensions di Edge, mengaktifkan Developer mode, dan menekan Load unpacked sama halnya seperti di Google Chrome.
+                        </div>
+                    </details>
+
+                    <!-- FAQ 3 -->
+                    <details class="group bg-white border border-slate-200 rounded-2xl hover:border-blue-300 transition-colors">
+                        <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-5 text-slate-900">
+                            Kenapa menu scraper di extension masih terkunci/abu-abu?
+                            <span class="faq-icon text-slate-400 group-hover:text-blue-500">
+                                <i class="ph-bold ph-caret-down"></i>
+                            </span>
+                        </summary>
+                        <div class="text-slate-600 text-sm p-5 pt-0 leading-relaxed border-t border-slate-100 mt-2 pt-4">
+                            Pada Scraper Tools V3, perlindungan keamanan diterapkan. Menu utama SCRAPE dirancang agar baru bisa diakses (terbuka) setelah License Key yang sah dimasukkan dan diverifikasi secara online hingga status berubah menjadi "AKTIF".
+                        </div>
+                    </details>
+
+                    <!-- FAQ 4 -->
+                    <details class="group bg-white border border-slate-200 rounded-2xl hover:border-blue-300 transition-colors">
+                        <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-5 text-slate-900">
+                            Apakah perlu login ulang ke sistem kerja setelah instalasi?
+                            <span class="faq-icon text-slate-400 group-hover:text-blue-500">
+                                <i class="ph-bold ph-caret-down"></i>
+                            </span>
+                        </summary>
+                        <div class="text-slate-600 text-sm p-5 pt-0 leading-relaxed border-t border-slate-100 mt-2 pt-4">
+                            Silakan ikuti status login yang ditampilkan pada antarmuka extension. Jika session web belum terbaca oleh extension, lakukan login ulang secara normal di tab situs kerja Anda, lalu <b>refresh halaman tersebut</b>, dan buka panel extension kembali.
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-8">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-2">
+                <div class="w-6 h-6 rounded bg-gradient-to-br from-blue-600 to-indigo-600 text-white flex items-center justify-center font-bold text-[10px]">
+                    BS
+                </div>
+                <span class="text-sm font-semibold text-slate-800">Extension Tools</span>
+            </div>
+            <div class="text-xs font-medium text-slate-500">
+                &copy; 2026 Tools <span class="mx-2">•</span> Created by VQ
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const overlay = document.getElementById('warningOverlay');
+            const continueBtn = document.getElementById('warningContinue');
+            const body = document.body;
+
+            // Handle Modal Acceptance
+            continueBtn.addEventListener('click', () => {
+                // Fade out transition
+                overlay.style.opacity = '0';
+                overlay.style.backdropFilter = 'blur(0px)';
+                
+                setTimeout(() => {
+                    overlay.remove();
+                    body.classList.remove('no-scroll');
+                }, 400); // Matches transition duration
+            });
+            
+            // Smooth header background logic on scroll
+            const header = document.querySelector('header');
+            window.addEventListener('scroll', () => {
+                if(window.scrollY > 10) {
+                    header.classList.add('shadow-sm');
+                } else {
+                    header.classList.remove('shadow-sm');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
